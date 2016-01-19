@@ -1,5 +1,7 @@
 #!/bin/bash
 
-VERSION="2.6.1"
+VERSION="2.6.2"
 
-fpm -s dir -t deb -n prodigal -v ${VERSION} --iteration 1 -m "kblin@biosustain.dtu.dk" ./Prodigal-${VERSION}/prodigal=/usr/bin/prodigal
+wget https://github.com/hyattpd/Prodigal/releases/download/v${VERSION}/prodigal.linux -O prodigal
+
+fpm -s dir -t deb -n prodigal -v ${VERSION} --iteration 1 -m "kblin@biosustain.dtu.dk" ./prodigal=/usr/bin/prodigal
