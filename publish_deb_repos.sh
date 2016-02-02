@@ -31,9 +31,9 @@ function get_snapshot_name {
 
 for DISTRO in ${DISTROS[@]}; do
     SNAPSHOT_NAME=$(get_snapshot_name $DISTRO)
-    echo aptly snapshot create $SNAPSHOT_NAME from repo antismash-$DISTRO
-    echo aptly publish drop $DISTRO
-    echo aptly publish snapshot -architectures=i386,amd64 $SNAPSHOT_NAME
+    aptly snapshot create $SNAPSHOT_NAME from repo antismash-$DISTRO
+    aptly publish drop $DISTRO
+    aptly publish snapshot -architectures=i386,amd64 $SNAPSHOT_NAME
 done
 
-echo rsync -e ssh -avuP --delete $HOME/.aptly/public/ root@dl.secondarymetabolites.org:/vol/download/repos/deb/
+rsync -e ssh -avuP --delete $HOME/.aptly/public/ root@dl.secondarymetabolites.org:/vol/download/repos/deb/
