@@ -1,0 +1,1 @@
+fpm -s python -t deb --iteration 1 cobra==0.2.1
