@@ -1,0 +1,1 @@
+fpm -s python -t deb -d libglpk0 --iteration 1 glpk==0.3
