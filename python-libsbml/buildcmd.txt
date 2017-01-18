@@ -1,0 +1,1 @@
+fpm -s python -t deb -d zlib1g -d libbz2-1.0 -d libxml2 --iteration 2 python-libsbml
