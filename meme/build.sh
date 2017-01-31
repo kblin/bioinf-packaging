@@ -28,7 +28,9 @@ make install DESTDIR=$INSTALLDIR
 popd
 
 # Last but not least, package it
-fpm -s dir -t deb -n meme-suite -v $VERSION -C $INSTALLDIR --epoch ${PATCH} --iteration 1 usr/bin var/lib var/log
+fpm -s dir -t deb -n meme-suite -v $VERSION --iteration 2 \
+    -d "libxml-parser-perl" -d "ghostscript" \
+    -C $INSTALLDIR usr/bin var/lib var/log
 
 cp *.deb /outside
 popd
